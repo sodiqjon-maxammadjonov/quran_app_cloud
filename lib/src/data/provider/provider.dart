@@ -1,8 +1,7 @@
-
-import 'package:provider/single_child_widget.dart';
+import 'package:quran_app_cloud/src/data/library/library.dart';
 
 class Providers {
   static final List<SingleChildWidget> providers = [
-
+    BlocProvider(create: (context) => NavBarBloc()),
   ];
 }

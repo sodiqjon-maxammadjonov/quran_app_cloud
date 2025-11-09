@@ -1,12 +1,4 @@
-
-
-import 'dart:async';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app_cloud/src/data/const/const_values.dart';
-import 'package:quran_app_cloud/src/data/provider/provider.dart';
+import 'src/data/library/library.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() {
@@ -49,14 +41,22 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return
+      MultiBlocProvider(
       providers: Providers.providers,
-      child: MaterialApp(
+      child:
+      CupertinoApp.router(
         title: ConstValues.appName,
         debugShowCheckedModeBanner: false,
-        navigatorKey: navigatorKey,
-        // routes: Routes.baseRoutes,
-        // initialRoute: RouteNames.splash,
+        routerConfig: appRouter,
+        theme: AppTheme.currentTheme,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: AppLocalizations.supportedLocales,
       ),
     );
   }
