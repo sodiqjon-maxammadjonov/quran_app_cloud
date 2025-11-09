@@ -11,6 +11,9 @@ export 'dart:async';
 export 'package:quran_app_cloud/src/data/routes/routes.dart';
 export 'package:flutter/services.dart';
 export 'package:google_fonts/google_fonts.dart';
+export 'package:flutter/scheduler.dart';
+export 'package:shared_preferences/shared_preferences.dart';
+
 // export 'dart:ui';
 
 
@@ -21,13 +24,18 @@ export '/theme/color.dart';
 
 //bloc
 export'package:quran_app_cloud/src/view/main/bloc/nav_bar_bloc.dart';
+export 'package:quran_app_cloud/src/view/settings/bloc/settings_bloc.dart';
 
 
 //data
 export '../../data/const/const_values.dart';
-export 'package:quran_app_cloud/src/data/provider/provider.dart';
+export '../../data/provider/provider.dart';
+// export '../../data/provider/theme-provider.dart';
 export '../../widget/appbar/app_bar_widget.dart';
 export '../../widget/tile/settings_tile.dart';
+export '../../widget/bottom/bottom_sheet_picker.dart';
+export '../../view/settings/repo/settings_repo.dart';
+
 
 
 

@@ -31,4 +31,58 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get quranFull => 'Qur\'an Karim';
+
+  @override
+  String get appearance => 'Appearance';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get light => 'Light';
+
+  @override
+  String get dark => 'Dark';
+
+  @override
+  String get system => 'System';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get appLanguage => 'App Language';
+
+  @override
+  String get uzbek => 'Uzbek';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get arabic => 'Arabic';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get dailyReminder => 'Daily Reminder';
+
+  @override
+  String get on => 'On';
+
+  @override
+  String get off => 'Off';
+
+  @override
+  String get aboutApp => 'About App';
+
+  @override
+  String get version => 'Version';
+
+  @override
+  String get rateApp => 'Rate App';
+
+  @override
+  String get appStore => 'on App Store';
 }

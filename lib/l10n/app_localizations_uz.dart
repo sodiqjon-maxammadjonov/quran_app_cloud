@@ -31,4 +31,58 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get quranFull => 'Qur\'oni karim';
+
+  @override
+  String get appearance => 'Ko\'rinish';
+
+  @override
+  String get theme => 'Mavzu';
+
+  @override
+  String get light => 'Yorug\'';
+
+  @override
+  String get dark => 'Tungi';
+
+  @override
+  String get system => 'Sistema';
+
+  @override
+  String get language => 'Til';
+
+  @override
+  String get appLanguage => 'Ilova tili';
+
+  @override
+  String get uzbek => 'O\'zbekcha';
+
+  @override
+  String get english => 'Inglizcha';
+
+  @override
+  String get arabic => 'Arabcha';
+
+  @override
+  String get notifications => 'Bildirishnomalar';
+
+  @override
+  String get dailyReminder => 'Kundalik eslatma';
+
+  @override
+  String get on => 'Yoqilgan';
+
+  @override
+  String get off => 'O\'chirilgan';
+
+  @override
+  String get aboutApp => 'Ilova haqida';
+
+  @override
+  String get version => 'Versiya';
+
+  @override
+  String get rateApp => 'Baholang';
+
+  @override
+  String get appStore => 'App Store\'da';
 }

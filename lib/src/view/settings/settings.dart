@@ -3,127 +3,123 @@ import 'package:quran_app_cloud/src/data/library/library.dart';
 class Settings extends StatelessWidget {
   const Settings({super.key});
 
-  void _showLanguagePicker(BuildContext context) {
-    showCupertinoModalPopup(
+  void _showThemePicker(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
+    BottomSheetPicker.show(
       context: context,
-      builder: (BuildContext context) => CupertinoActionSheet(
-        title: MyText(
-          'Tilni tanlang',
-          style: TextStyle(
-            fontSize: 13,
-            color: CupertinoTheme.of(context).textTheme.textStyle.color?.withOpacity(0.6),
-          ),
-        ),
-        actions: [
-          CupertinoActionSheetAction(
-            onPressed: () {
-              Navigator.pop(context);
-              // TODO: O'zbek tiliga o'tkazish
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MyText('🇺🇿  O\'zbekcha'),
-              ],
-            ),
-          ),
-          CupertinoActionSheetAction(
-            onPressed: () {
-              Navigator.pop(context);
-              // TODO: Ingliz tiliga o'tkazish
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MyText('🇬🇧  English'),
-              ],
-            ),
-          ),
-          CupertinoActionSheetAction(
-            onPressed: () {
-              Navigator.pop(context);
-              // TODO: Arab tiliga o'tkazish
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MyText('🇸🇦  العربية'),
-              ],
-            ),
-          ),
-        ],
-        cancelButton: CupertinoActionSheetAction(
-          onPressed: () {
-            Navigator.pop(context);
+      title: t.appearance,
+      options: [
+        PickerOption(
+          label: t.light,
+          emoji: '☀️',
+          onTap: () {
+            context.read<SettingsBloc>().add(SetLightTheme());
           },
-          isDestructiveAction: true,
-          child: MyText('Bekor qilish'),
         ),
-      ),
+        PickerOption(
+          label: t.dark,
+          emoji: '🌙',
+          onTap: () {
+            context.read<SettingsBloc>().add(SetDarkTheme());
+          },
+        ),
+        PickerOption(
+          label: t.system,
+          emoji: '📱',
+          onTap: () {
+            context.read<SettingsBloc>().add(SetSystemTheme());
+          }
+        ),
+      ],
+    );
+  }
+
+  void _showLanguagePicker(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
+    BottomSheetPicker.show(
+      context: context,
+      title: t.language,
+      options: [
+        PickerOption(
+          label: t.uzbek,
+          emoji: '🇺🇿',
+          onTap: () {
+            // TODO: O'zbek tiliga o'tkazish
+          },
+        ),
+        PickerOption(
+          label: t.english,
+          emoji: '🇬🇧',
+          onTap: () {
+            // TODO: Ingliz tiliga o'tkazish
+          },
+        ),
+        PickerOption(
+          label: t.arabic,
+          emoji: '🇸🇦',
+          onTap: () {
+            // TODO: Arab tiliga o'tkazish
+          },
+        ),
+      ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = CupertinoTheme.of(context);
-    final t = AppLocalizations.of(context);
+    final t = AppLocalizations.of(context)!;
 
     return CupertinoPageScaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
       navigationBar: AppBarWidget(
-        title: t!.settings,
+        title: t.settings,
       ),
       child: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 20),
           children: [
-            // Theme Section
-            _buildSectionHeader(context, 'Ko\'rinish'),
+            _buildSectionHeader(context, t.appearance),
             _buildSettingsGroup(
               context,
               [
                 SettingsTile(
                   icon: CupertinoIcons.moon_stars_fill,
                   iconColor: CupertinoColors.systemIndigo,
-                  title: 'Tungi rejim',
-                  subtitle: 'Dark mode',
-                  onTap: () {
-                    // TODO: Theme o'zgartirish
-                  },
+                  title: t.theme,
+                  subtitle: t.system,
+                  trailing: CupertinoIcons.chevron_right,
+                  onTap: () => _showThemePicker(context),
                 ),
               ],
             ),
-
             const SizedBox(height: 32),
-
-            // Language Section
-            _buildSectionHeader(context, 'Til'),
+            _buildSectionHeader(context, t.language),
             _buildSettingsGroup(
               context,
               [
                 SettingsTile(
                   icon: CupertinoIcons.globe,
                   iconColor: CupertinoColors.systemBlue,
-                  title: 'Ilova tili',
-                  subtitle: 'O\'zbekcha',
+                  title: t.appLanguage,
+                  subtitle: t.uzbek,
                   trailing: CupertinoIcons.chevron_right,
                   onTap: () => _showLanguagePicker(context),
                 ),
               ],
             ),
-
             const SizedBox(height: 32),
-
-            // Notifications Section
-            _buildSectionHeader(context, 'Bildirishnomalar'),
+            _buildSectionHeader(context, t.notifications),
             _buildSettingsGroup(
               context,
               [
                 SettingsTile(
                   icon: CupertinoIcons.bell_fill,
                   iconColor: CupertinoColors.systemRed,
-                  title: 'Namoz vaqtlari',
-                  subtitle: 'Yoqilgan',
+                  title: t.namozTimes,
+                  subtitle: t.on,
                   onTap: () {
                     // TODO: Namoz bildirishnomalar settings
                   },
@@ -131,8 +127,8 @@ class Settings extends StatelessWidget {
                 SettingsTile(
                   icon: CupertinoIcons.book_fill,
                   iconColor: CupertinoColors.systemGreen,
-                  title: 'Kundalik eslatma',
-                  subtitle: 'O\'chirilgan',
+                  title: t.dailyReminder,
+                  subtitle: t.off,
                   showDivider: false,
                   onTap: () {
                     // TODO: Kundalik eslatma settings
@@ -140,18 +136,15 @@ class Settings extends StatelessWidget {
                 ),
               ],
             ),
-
             const SizedBox(height: 32),
-
-            // About Section
-            _buildSectionHeader(context, 'Ilova haqida'),
+            _buildSectionHeader(context, t.aboutApp),
             _buildSettingsGroup(
               context,
               [
                 SettingsTile(
                   icon: CupertinoIcons.info_circle_fill,
                   iconColor: CupertinoColors.systemGrey,
-                  title: 'Versiya',
+                  title: t.version,
                   subtitle: '1.0.0',
                   onTap: () {
                     // TODO: About page
@@ -160,8 +153,8 @@ class Settings extends StatelessWidget {
                 SettingsTile(
                   icon: CupertinoIcons.star_fill,
                   iconColor: CupertinoColors.systemYellow,
-                  title: 'Baholang',
-                  subtitle: 'App Store\'da',
+                  title: t.rateApp,
+                  subtitle: t.appStore,
                   showDivider: false,
                   onTap: () {
                     // TODO: Rate app
@@ -169,7 +162,6 @@ class Settings extends StatelessWidget {
                 ),
               ],
             ),
-
             const SizedBox(height: 40),
           ],
         ),
@@ -205,7 +197,7 @@ class Settings extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: (isDark ? CupertinoColors.black : CupertinoColors.systemGrey)
-                .withOpacity(isDark ? 0.3 : 0.1),
+                .withValues(alpha: isDark ? 0.3 : 0.1),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),

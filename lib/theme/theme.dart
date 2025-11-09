@@ -1,7 +1,8 @@
 import '/src/data/library/library.dart';
 
 class AppTheme {
-  // Light Theme
+  static CupertinoThemeData _currentTheme = lightTheme;
+
   static CupertinoThemeData lightTheme = CupertinoThemeData(
     brightness: Brightness.light,
     primaryColor: AppColors.lightPrimary,
@@ -9,26 +10,26 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.lightBackground,
     barBackgroundColor: AppColors.lightSurface,
     textTheme: CupertinoTextThemeData(
-      primaryColor: AppColors.lightOnSecondary,
-      textStyle: GoogleFonts.inter(
-        color: AppColors.lightOnSecondary,
-        fontSize: 16,
-      ),
-      actionTextStyle: GoogleFonts.inter(
-        color: AppColors.lightPrimary,
-        fontWeight: FontWeight.w600,
-      ),
-      navTitleTextStyle: GoogleFonts.inter(
-        color: AppColors.lightOnSecondary,
-        fontSize: 28,
-        fontWeight: FontWeight.w600,
-      ),
-      navLargeTitleTextStyle: GoogleFonts.inter(
-        color: AppColors.lightOnSecondary,
-        fontSize: 34,
-        fontWeight: FontWeight.w700,
-        letterSpacing: -0.5,
-      ),
+        primaryColor: AppColors.lightOnSecondary,
+        textStyle: GoogleFonts.inter(
+          color: AppColors.lightOnSecondary,
+          fontSize: 16,
+        ),
+        actionTextStyle: GoogleFonts.inter(
+          color: AppColors.lightPrimary,
+          fontWeight: FontWeight.w600,
+        ),
+        navTitleTextStyle: GoogleFonts.inter(
+          color: AppColors.lightOnSecondary,
+          fontSize: 28,
+          fontWeight: FontWeight.w600,
+        ),
+        navLargeTitleTextStyle: GoogleFonts.inter(
+          color: AppColors.lightOnSecondary,
+          fontSize: 34,
+          fontWeight: FontWeight.w700,
+          letterSpacing: -0.5,
+        ),
         dateTimePickerTextStyle: GoogleFonts.inter(
           color: AppColors.lightDivider.withValues(alpha: 0.8),
           fontSize: 13,
@@ -46,37 +47,40 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.darkBackground,
     barBackgroundColor: AppColors.darkSurface,
     textTheme: CupertinoTextThemeData(
-      primaryColor: AppColors.darkOnSecondary,
-      textStyle: GoogleFonts.inter(
-        color: AppColors.darkOnSecondary,
-        fontSize: 16,
-      ),
-      actionTextStyle: GoogleFonts.inter(
-        color: AppColors.darkPrimary,
-        fontWeight: FontWeight.w600,
-      ),
-      navTitleTextStyle: GoogleFonts.inter(
-        color: AppColors.darkOnSecondary,
-        fontSize: 28,
-        fontWeight: FontWeight.w600,
-      ),
-      navLargeTitleTextStyle: GoogleFonts.inter(
-        color: AppColors.darkOnSecondary,
-        fontSize: 34,
-        fontWeight: FontWeight.w700,
-        letterSpacing: -0.5,
-      ),
+        primaryColor: AppColors.darkOnSecondary,
+        textStyle: GoogleFonts.inter(
+          color: AppColors.darkOnSecondary,
+          fontSize: 16,
+        ),
+        actionTextStyle: GoogleFonts.inter(
+          color: AppColors.darkPrimary,
+          fontWeight: FontWeight.w600,
+        ),
+        navTitleTextStyle: GoogleFonts.inter(
+          color: AppColors.darkOnSecondary,
+          fontSize: 28,
+          fontWeight: FontWeight.w600,
+        ),
+        navLargeTitleTextStyle: GoogleFonts.inter(
+          color: AppColors.darkOnSecondary,
+          fontSize: 34,
+          fontWeight: FontWeight.w700,
+          letterSpacing: -0.5,
+        ),
         dateTimePickerTextStyle: GoogleFonts.inter(
           color: AppColors.lightPrimary.withValues(alpha: 0.8),
           fontSize: 13,
           fontWeight: FontWeight.w400,
           letterSpacing: 0.2,
         )
-
     ),
   );
 
-  static CupertinoThemeData get currentTheme => darkTheme;
+  static CupertinoThemeData get currentTheme => _currentTheme;
+
+  static void setCurrentTheme(CupertinoThemeData theme) {
+    _currentTheme = theme;
+  }
 
   static TextStyle arabicTextStyle({
     required bool isDark,
@@ -140,5 +144,18 @@ class AppTheme {
       color: isDark ? AppColors.darkPrimary : AppColors.lightPrimary,
       height: 1.5,
     );
+  }
+}
+extension AppThemeHelper on AppTheme {
+  static CupertinoThemeData getThemeForMode(ThemeMode mode) {
+    switch (mode) {
+      case ThemeMode.light:
+        return AppTheme.lightTheme;
+      case ThemeMode.dark:
+        return AppTheme.darkTheme;
+      case ThemeMode.system:
+        final brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
+        return brightness == Brightness.dark ? AppTheme.darkTheme : AppTheme.lightTheme;
+    }
   }
 }

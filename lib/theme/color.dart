@@ -6,7 +6,7 @@ class AppColors {
   static const Color lightPrimaryDark = Color(0xFF047857); // Emerald-700
   static const Color lightPrimaryLight = Color(0xFF10B981); // Emerald-500
   static const Color lightSecondaryColor = Color(0xFF14B8A6); // Teal-500
-  static const Color lightBackground = Color(0xE0E0FFED); // Emerald-50 - Asosiy fon (yashil-oq)
+  static const Color lightBackground = Color(0xBEE9FFF3); // Emerald-50 - Asosiy fon (yashil-oq)
   static const Color lightSurface = CupertinoColors.white; // White - Card/BottomNav foni
   static const Color lightOnPrimary = CupertinoColors.white;
   static const Color lightOnSurface = Color(0xFF111827); // Gray-900

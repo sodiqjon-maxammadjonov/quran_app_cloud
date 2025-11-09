@@ -6,7 +6,25 @@
   "namozTimes": "Namoz vaqtlari",
   "tasbeh": "Tasbeh",
   "settings": "Sozlamalar",
-  "greeting": "Assalomu alaykum",
-  "quranFull": "Qur'oni karim"
+  "greeting": "Hush kelibsiz",
+  "quranFull": "Qur'oni karim",
+  "appearance": "Ko'rinish",
+  "theme": "Mavzu",
+  "light": "Yorug'",
+  "dark": "Tungi",
+  "system": "Sistema",
+  "language": "Til",
+  "appLanguage": "Ilova tili",
+  "uzbek": "O'zbekcha",
+  "english": "Inglizcha",
+  "arabic": "Arabcha",
+  "notifications": "Bildirishnomalar",
+  "dailyReminder": "Kundalik eslatma",
+  "on": "Yoqilgan",
+  "off": "O'chirilgan",
+  "aboutApp": "Ilova haqida",
+  "version": "Versiya",
+  "rateApp": "Baholang",
+  "appStore": "App Store'da"
 }
 
