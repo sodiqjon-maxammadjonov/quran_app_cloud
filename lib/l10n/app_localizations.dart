@@ -250,6 +250,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'on App Store'**
   String get appStore;
+
+  /// No description provided for @surahs.
+  ///
+  /// In en, this message translates to:
+  /// **'Surahs'**
+  String get surahs;
+
+  /// No description provided for @verses.
+  ///
+  /// In en, this message translates to:
+  /// **'verses'**
+  String get verses;
+
+  /// No description provided for @makkan.
+  ///
+  /// In en, this message translates to:
+  /// **'Makkan'**
+  String get makkan;
+
+  /// No description provided for @medinan.
+  ///
+  /// In en, this message translates to:
+  /// **'Medinan'**
+  String get medinan;
+
+  /// No description provided for @noSurahsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No surahs found'**
+  String get noSurahsFound;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @searchSurah.
+  ///
+  /// In en, this message translates to:
+  /// **'Search surah...'**
+  String get searchSurah;
+
+  /// No description provided for @noResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No results found'**
+  String get noResults;
+
+  /// No description provided for @filtering.
+  ///
+  /// In en, this message translates to:
+  /// **'Filtering'**
+  String get filtering;
+
+  /// No description provided for @filterRevelationPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Revelation Place'**
+  String get filterRevelationPlace;
+
+  /// No description provided for @filterMinVerses.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum Verses'**
+  String get filterMinVerses;
+
+  /// No description provided for @filterMaxVerses.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum Verses'**
+  String get filterMaxVerses;
+
+  /// No description provided for @filterPageNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Page Number'**
+  String get filterPageNumber;
+
+  /// No description provided for @filterSortByRevelation.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort by Revelation'**
+  String get filterSortByRevelation;
+
+  /// No description provided for @noFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'No Filters'**
+  String get noFilters;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

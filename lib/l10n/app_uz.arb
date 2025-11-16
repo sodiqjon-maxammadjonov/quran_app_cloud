@@ -25,6 +25,21 @@
   "aboutApp": "Ilova haqida",
   "version": "Versiya",
   "rateApp": "Baholang",
-  "appStore": "App Store'da"
+  "appStore": "App Store'da",
+  "surahs": "Suralar",
+  "verses": "oyat",
+  "makkan": "Makkiy",
+  "medinan": "Madaniy",
+  "noSurahsFound": "Suralar topilmadi",
+  "search": "Qidirish",
+  "searchSurah": "Sura qidirish...",
+  "noResults": "Natija topilmadi",
+  "filtering": "Filtrlash",
+  "filterRevelationPlace": "Vahiy joyi",
+  "filterMinVerses": "Minimal oyatlar soni",
+  "filterMaxVerses": "Maksimal oyatlar soni",
+  "filterPageNumber": "Sahifa raqami",
+  "filterSortByRevelation": "Vahiy tartibida saralash",
+  "noFilters": "Filtersiz"
 }
 

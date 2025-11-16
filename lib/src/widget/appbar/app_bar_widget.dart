@@ -16,10 +16,10 @@ class AppBarWidget extends StatelessWidget implements ObstructingPreferredSizeWi
   Widget build(BuildContext context) {
     final theme = CupertinoTheme.of(context);
     final now = DateTime.now();
-    final formattedDate = DateFormat('yyyy mm dd, EE', 'uz_UZ').format(now);
+    final formattedDate = DateFormat('yyyy.M.d, EE', 'uz_UZ').format(now);
 
     return Container(
-      padding: const EdgeInsets.only(top: 50, left: 30, right: 16,bottom: 12),
+      padding: const EdgeInsets.only(top: 50, left: 30, right: 16,bottom: 27),
       decoration: BoxDecoration(
         color: theme.barBackgroundColor.withAlpha(240),
         border: Border(

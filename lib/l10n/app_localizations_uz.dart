@@ -27,7 +27,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get settings => 'Sozlamalar';
 
   @override
-  String get greeting => 'Assalomu alaykum';
+  String get greeting => 'Hush kelibsiz';
 
   @override
   String get quranFull => 'Qur\'oni karim';
@@ -85,4 +85,49 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get appStore => 'App Store\'da';
+
+  @override
+  String get surahs => 'Suralar';
+
+  @override
+  String get verses => 'oyat';
+
+  @override
+  String get makkan => 'Makkiy';
+
+  @override
+  String get medinan => 'Madaniy';
+
+  @override
+  String get noSurahsFound => 'Suralar topilmadi';
+
+  @override
+  String get search => 'Qidirish';
+
+  @override
+  String get searchSurah => 'Sura qidirish...';
+
+  @override
+  String get noResults => 'Natija topilmadi';
+
+  @override
+  String get filtering => 'Filtrlash';
+
+  @override
+  String get filterRevelationPlace => 'Vahiy joyi';
+
+  @override
+  String get filterMinVerses => 'Minimal oyatlar soni';
+
+  @override
+  String get filterMaxVerses => 'Maksimal oyatlar soni';
+
+  @override
+  String get filterPageNumber => 'Sahifa raqami';
+
+  @override
+  String get filterSortByRevelation => 'Vahiy tartibida saralash';
+
+  @override
+  String get noFilters => 'Filtersiz';
 }

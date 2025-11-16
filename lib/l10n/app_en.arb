@@ -25,5 +25,20 @@
   "aboutApp": "About App",
   "version": "Version",
   "rateApp": "Rate App",
-  "appStore": "on App Store"
+  "appStore": "on App Store",
+  "surahs": "Surahs",
+  "verses": "verses",
+  "makkan": "Makkan",
+  "medinan": "Medinan",
+  "noSurahsFound": "No surahs found",
+  "search": "Search",
+  "searchSurah": "Search surah...",
+  "noResults": "No results found",
+  "filtering": "Filtering",
+  "filterRevelationPlace": "Revelation Place",
+  "filterMinVerses": "Minimum Verses",
+  "filterMaxVerses": "Maximum Verses",
+  "filterPageNumber": "Page Number",
+  "filterSortByRevelation": "Sort by Revelation",
+  "noFilters": "No Filters"
 }

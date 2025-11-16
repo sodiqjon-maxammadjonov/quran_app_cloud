@@ -85,4 +85,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appStore => 'on App Store';
+
+  @override
+  String get surahs => 'Surahs';
+
+  @override
+  String get verses => 'verses';
+
+  @override
+  String get makkan => 'Makkan';
+
+  @override
+  String get medinan => 'Medinan';
+
+  @override
+  String get noSurahsFound => 'No surahs found';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get searchSurah => 'Search surah...';
+
+  @override
+  String get noResults => 'No results found';
+
+  @override
+  String get filtering => 'Filtering';
+
+  @override
+  String get filterRevelationPlace => 'Revelation Place';
+
+  @override
+  String get filterMinVerses => 'Minimum Verses';
+
+  @override
+  String get filterMaxVerses => 'Maximum Verses';
+
+  @override
+  String get filterPageNumber => 'Page Number';
+
+  @override
+  String get filterSortByRevelation => 'Sort by Revelation';
+
+  @override
+  String get noFilters => 'No Filters';
 }

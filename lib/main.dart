@@ -2,30 +2,38 @@ import 'src/data/library/library.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-void main() {
-  runZonedGuarded(
-        () async {
-      WidgetsFlutterBinding.ensureInitialized();
+Future<void> initServices() async {
+  final directory = await getApplicationDocumentsDirectory();
+  Hive.init(directory.path);
 
-      // Orientation ni sozlash
-      await SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-      ]);
+  Hive.registerAdapter(SurahModelAdapter());
+  Hive.registerAdapter(TranslatedNameAdapter());
+  Hive.registerAdapter(AyahModelAdapter());
 
-      FlutterError.onError = (FlutterErrorDetails details) {
-        FlutterError.presentError(details);
-        if (details.stack != null) {
-          print('Flutter Error: ${details.exception}');
-        }
-      };
 
-      runApp(const MyApp());
-    },
-        (Object error, StackTrace stack) {
-      print('Caught Dart error: $error');
-    },
-  );
+  await Hive.openBox<SurahModel>('surahs');
+  await Hive.openBox<AyahModel>('ayahs');
+
+  await SurahDb().init();
+  await AyahDb().init();
 }
+
+
+
+void main() {
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+    await initServices();
+
+    runApp(const MyApp());
+  }, (error, stack) {
+    print('Caught Dart error: $error');
+  });
+}
+
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -41,11 +49,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-
-    // SettingsBloc ni yaratish
     _settingsBloc = SettingsBloc();
-
-    // Saqlangan tema sozlamalarini yuklash
     Future.microtask(() {
       _settingsBloc.add(LoadSettings(themeMode: ThemeMode.system));
     });
@@ -60,7 +64,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   void didChangePlatformBrightness() {
-    // Sistema brightness o'zgarganda
     print('🔔 Platform brightness changed');
     _settingsBloc.add(SystemBrightnessChanged());
   }
