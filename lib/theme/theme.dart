@@ -21,7 +21,7 @@ class AppTheme {
         ),
         navTitleTextStyle: GoogleFonts.inter(
           color: AppColors.lightOnSecondary,
-          fontSize: 28,
+          fontSize: 24,
           fontWeight: FontWeight.w600,
         ),
         navLargeTitleTextStyle: GoogleFonts.inter(

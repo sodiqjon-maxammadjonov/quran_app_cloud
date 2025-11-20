@@ -48,8 +48,10 @@ export 'package:quran_app_cloud/src/data/repo/ayah/ayah_repo.dart';
 export 'package:quran_app_cloud/src/data/db_service/ayah/ayah_db.dart';
 export 'package:quran_app_cloud/src/data/library/library.dart';
 export 'package:quran_app_cloud/src/view/quron/screen/bloc/ayah_bloc.dart';
+export 'package:quran_app_cloud/src/data/const/ayah_editions.dart';
 // export 'package:quran_app_cloud/src/data/db_service/download/download_progress_db.dart';
 // export 'package:quran_app_cloud/src/data/model/download/download_progress.dart';
+export 'package:quran_app_cloud/src/data/model/edition/edition_model.dart';
 
 
 

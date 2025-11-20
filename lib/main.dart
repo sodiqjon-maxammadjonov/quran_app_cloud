@@ -8,14 +8,14 @@ Future<void> initServices() async {
 
   Hive.registerAdapter(SurahModelAdapter());
   Hive.registerAdapter(TranslatedNameAdapter());
-  Hive.registerAdapter(AyahModelAdapter());
+  // Hive.registerAdapter(AyahModelAdapter());
 
 
   await Hive.openBox<SurahModel>('surahs');
-  await Hive.openBox<AyahModel>('ayahs');
+  // await Hive.openBox<AyahModel>('ayahs');
 
   await SurahDb().init();
-  await AyahDb().init();
+  // await AyahDb().init();
 }
 
 

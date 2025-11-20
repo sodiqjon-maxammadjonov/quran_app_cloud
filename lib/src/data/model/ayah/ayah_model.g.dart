@@ -8,7 +8,7 @@ part of 'ayah_model.dart';
 
 class AyahModelAdapter extends TypeAdapter<AyahModel> {
   @override
-  final int typeId = 2;
+  final int typeId = 3;
 
   @override
   AyahModel read(BinaryReader reader) {
@@ -17,40 +17,46 @@ class AyahModelAdapter extends TypeAdapter<AyahModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return AyahModel(
-      id: fields[0] as int,
-      surahId: fields[1] as int,
-      ayahNumber: fields[2] as int,
-      juzNumber: fields[3] as int,
-      pageNumber: fields[4] as int,
-      textArabic: fields[5] as String,
-      translations: (fields[6] as Map).cast<String, String>(),
-      audioUrl: fields[7] as String?,
-      downloadedAt: fields[8] as DateTime,
+      number: fields[0] as int,
+      text: fields[1] as String,
+      numberInSurah: fields[2] as int,
+      juz: fields[3] as int,
+      manzil: fields[4] as int,
+      page: fields[5] as int,
+      ruku: fields[6] as int,
+      hizbQuarter: fields[7] as int,
+      sajda: fields[8] as bool,
+      surahNumber: fields[9] as int,
+      edition: fields[10] as EditionModel,
     );
   }
 
   @override
   void write(BinaryWriter writer, AyahModel obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(11)
       ..writeByte(0)
-      ..write(obj.id)
+      ..write(obj.number)
       ..writeByte(1)
-      ..write(obj.surahId)
+      ..write(obj.text)
       ..writeByte(2)
-      ..write(obj.ayahNumber)
+      ..write(obj.numberInSurah)
       ..writeByte(3)
-      ..write(obj.juzNumber)
+      ..write(obj.juz)
       ..writeByte(4)
-      ..write(obj.pageNumber)
+      ..write(obj.manzil)
       ..writeByte(5)
-      ..write(obj.textArabic)
+      ..write(obj.page)
       ..writeByte(6)
-      ..write(obj.translations)
+      ..write(obj.ruku)
       ..writeByte(7)
-      ..write(obj.audioUrl)
+      ..write(obj.hizbQuarter)
       ..writeByte(8)
-      ..write(obj.downloadedAt);
+      ..write(obj.sajda)
+      ..writeByte(9)
+      ..write(obj.surahNumber)
+      ..writeByte(10)
+      ..write(obj.edition);
   }
 
   @override

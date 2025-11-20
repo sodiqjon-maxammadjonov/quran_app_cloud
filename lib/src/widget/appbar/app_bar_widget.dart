@@ -19,7 +19,7 @@ class AppBarWidget extends StatelessWidget implements ObstructingPreferredSizeWi
     final formattedDate = DateFormat('yyyy.M.d, EE', 'uz_UZ').format(now);
 
     return Container(
-      padding: const EdgeInsets.only(top: 50, left: 30, right: 16,bottom: 27),
+      padding: const EdgeInsets.only(top: 50, left: 30, right: 16,bottom: 10),
       decoration: BoxDecoration(
         color: theme.barBackgroundColor.withAlpha(240),
         border: Border(
@@ -53,7 +53,6 @@ class AppBarWidget extends StatelessWidget implements ObstructingPreferredSizeWi
             ),
           ),
 
-          // O'ng tomonda optional trailing
           if (trailing != null)
             Padding(
               padding: const EdgeInsets.only(left: 8),
@@ -64,9 +63,8 @@ class AppBarWidget extends StatelessWidget implements ObstructingPreferredSizeWi
     );
   }
 
-  // Balandiqni oshirdik — 80 bo‘ldi
   @override
-  Size get preferredSize => const Size.fromHeight(80);
+  Size get preferredSize => const Size.fromHeight(56);
 
   @override
   bool shouldFullyObstruct(BuildContext context) => true;
