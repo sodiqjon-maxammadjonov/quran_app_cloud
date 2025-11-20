@@ -1,7 +1,6 @@
 import '../../library/library.dart';
 
 
-/// Suralar uchun Repository - emit bilan ishlaydi
 class SurahRepository {
   final SurahDb _db = SurahDb();
   final ApiService _api = ApiService();
